@@ -1,0 +1,28 @@
+{% extends 'user_login/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<table class="table table-borderless">
+<thead class="thead-white">
+  <tr>
+    <th scope="col"> <h1 class="mb-3 bd-text-purple-brigh">Login here</h1></th>
+
+</thead>
+</table>
+<form action="" method="post" autocomplete="off">
+  {% csrf_token %}
+  {{form.emailaddress|as_crispy_field}}
+  {{form.password|as_crispy_field}}
+
+  <div class="row">
+    <div class="col-md-4">
+      <button type="submit" class="btn btn-outline-primary btn-block btn-lg" >Login </button>
+
+    </div>
+    <div class="col-md-4">
+    	<a href="{% url 'register' %}" class="btn btn-outline-primary btn-block btn-lg" >create new account</a>
+
+    </div>
+  </form>
+
+ {% endblock content %}
